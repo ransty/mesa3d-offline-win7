@@ -4,6 +4,7 @@ Windows 7 SP1 VM:
 
 Windows 11 Build VM toolchain:
 - Visual Studio Build Tools 2022
+- CMake
 - Python 3.15.2
   - PyYAML
   - Mako >= 0.8.0
