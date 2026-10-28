@@ -52,6 +52,7 @@ set CMAKE_PREFIX_PATH=C:\LLVM13-x86
 ```
 4. Then configure Mesa to have the renderers of softpipe and llvmpipe
 ```
+cd /d C:\mesa-26.2.5
 meson configure build-llvmpipe -Db_vscrt=mt
 
 meson setup build-llvmpipe ^
