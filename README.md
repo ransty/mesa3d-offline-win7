@@ -1,17 +1,18 @@
 # Pre-requisites
 Windows 7 SP1 VM:
 - x86 Visual C++ Redistributable 2015
+
 Windows 11 Build VM toolchain:
 - Visual Studio Build Tools 2022
 - Python 3.15.2
--- PyYAML
--- Mako >= 0.8.0
--- pyparsing
--- setuptools
--- packaging
--- MarkupSafe
+  - PyYAML
+  - Mako >= 0.8.0
+  - pyparsing
+  - setuptools
+  - packaging
+  - MarkupSafe
 - Microsoft Visual Studio Installer
--- Microsoft Visual C++ v14 Redistributable (x86) - 14.51.36247
+  - Microsoft Visual C++ v14 Redistributable (x86) - 14.51.36247
 - Meson Build System
 - Windows Software Development Kit - Windows 10.0.19041.5609
 - Windows Software Development Kit - Windows 10.0.22621.5040
