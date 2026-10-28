@@ -63,7 +63,7 @@ meson setup build-softpipe ^
   -Dllvm=disabled ^
   -Dbuild-tests=false
 
-meson configure build-llvmpipe -Db_vscrt=mt
+meson configure build-softpipe -Db_vscrt=mt
 ```
 5. Compile mesa with Ninja
 `ninja -C build-llvmpipe`
