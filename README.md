@@ -53,13 +53,14 @@ set CMAKE_PREFIX_PATH=C:\LLVM13-x86
 4. Then configure Mesa to have the renderers of softpipe and llvmpipe
 ```
 cd /d C:\mesa-26.2.5
-meson setup build-llvmpipe ^
+meson setup build-softpipe ^
+  --backend=ninja ^
   --buildtype=release ^
+  --wrap-mode=nodownload ^
   -Dplatforms=windows ^
-  -Dgallium-drivers=softpipe,llvmpipe ^
+  -Dgallium-drivers=softpipe ^
   -Dvulkan-drivers= ^
-  -Dllvm=enabled ^
-  -Db_vscrt=mt ^
+  -Dllvm=disabled ^
   -Dbuild-tests=false
 
 meson configure build-llvmpipe -Db_vscrt=mt
