@@ -65,10 +65,10 @@ meson configure build-win7-x86 -Db_vscrt=mt
 `ninja -C build-llvmpipe`
 7. Verify the dependencies with dumpbin and find their path:
 ```
+Get-ChildItem "C:\Users\TYGE\Downloads\mesa-21.3.9\build-llvmpipe" -Recurse -Include *.dll,*.exe | Select-Object Name,DirectoryName
+
 dumpbin /dependents PATH_TO_DLL
 dumpbin /headers PATH_TO_DLL
-
-Get-ChildItem "C:\Users\TYGE\Downloads\mesa-21.3.9\build-llvmpipe" -Recurse -Include *.dll,*.exe | Select-Object Name,DirectoryName
 ```
 
 8. Test the executables on Windows 7 SP1 with a script or the product
