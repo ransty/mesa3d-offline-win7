@@ -47,21 +47,19 @@ cmake --install build-win32
 `tar -xvf mesa-21.3.9.tar.xf`
 3. If compiling llvmpipe, set LLVM to be visible
 ```
+set "PATH=%PATH%;C:\msys64\usr\bin"
 set LLVM=C:\LLVM13-x86
 set CMAKE_PREFIX_PATH=C:\LLVM13-x86
 ```
 4. Then configure Mesa to have the renderers of softpipe and llvmpipe
 ```
 cd /d C:\mesa-26.2.5
-meson setup build-softpipe ^
-  --backend=ninja ^
-  --buildtype=release ^
-  --wrap-mode=nodownload ^
+meson setup build-softpipe-new ^
   -Dplatforms=windows ^
   -Dgallium-drivers=softpipe ^
   -Dvulkan-drivers= ^
   -Dllvm=disabled ^
-  -Dbuild-tests=false
+  -Db_vscrt=mt
 
 meson configure build-softpipe -Db_vscrt=mt
 
