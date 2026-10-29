@@ -54,21 +54,19 @@ set CMAKE_PREFIX_PATH=C:\LLVM13-x86
 4. Then configure Mesa to have the renderers of softpipe and llvmpipe
 ```
 cd /d C:\mesa-26.2.5
-meson setup build-softpipe-new ^
+meson setup builddir ^
   -Dplatforms=windows ^
-  -Dgallium-drivers=softpipe ^
-  -Dvulkan-drivers= ^
-  -Dllvm=disabled ^
+  -Dgallium-drivers=softpipe,llvmpipe ^
+  -Dvulkan-drivers=amd,swrast ^
   -Db_vscrt=mt
 
-meson configure build-softpipe -Db_vscrt=mt
+meson configure builddir -Db_vscrt=mt
 
-cd build-softpipe
-ninja
+ninja -C builddir
 ```
 5. Verify the dependencies with dumpbin and find their path:
 ```
-Get-ChildItem "C:\Users\TYGE\Downloads\mesa-21.3.9\build-llvmpipe" -Recurse -Include *.dll,*.exe | Select-Object Name,DirectoryName
+Get-ChildItem "C:\tempddir\mesa-26.2.5\builddir" -Recurse -Include *.dll,*.exe | Select-Object Name,DirectoryName
 
 dumpbin /dependents PATH_TO_DLL
 dumpbin /headers PATH_TO_DLL
@@ -140,8 +138,9 @@ cl /MT /EHsc /O2 MesaTest.cpp opengl32.lib gdi32.lib user32.lib /Fe:MesaTest.exe
 ```
 
 # If need to cleanup builddir on meson:
-Replace `build-win7-x86` with the directory specified in `meson setup`
+
 ```
-ninja -C build-win7-x86 -t clean
-ninja -C build-win7-x86
+meson setup --wipe builddir
+ninja -C builddir -t clean
+ninja -C builddir
 ```
