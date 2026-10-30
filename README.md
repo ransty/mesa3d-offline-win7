@@ -5,6 +5,9 @@ Windows 7 SP1 VM:
 Windows 11 Build VM toolchain:
 - Visual Studio Build Tools 2022
 - CMake
+- MSYS2
+  - Flex
+  - Bison
 - Python 3.15.2
   - PyYAML
   - Mako >= 0.8.0
@@ -18,7 +21,6 @@ Windows 11 Build VM toolchain:
 - Windows Software Development Kit - Windows 10.0.19041.5609
 - Windows Software Development Kit - Windows 10.0.22621.5040
 - Windows Software Development Kit - Windows 10.26100.7705
-- Flex/Bison - Latest release
 
 # Build LLVM x86
 ```
@@ -57,10 +59,8 @@ cd /d C:\mesa-26.2.5
 meson setup builddir ^
   -Dplatforms=windows ^
   -Dgallium-drivers=softpipe,llvmpipe ^
-  -Dvulkan-drivers=amd,swrast ^
+  -Dvulkan-drivers=swrast ^
   -Db_vscrt=mt
-
-meson configure builddir -Db_vscrt=mt
 
 ninja -C builddir
 ```
